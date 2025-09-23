@@ -1,0 +1,155 @@
+# Derivatives Risk Management Pipeline Configuration
+# This YAML file contains all configurable parameters for the pipeline
+
+# Data Configuration
+data:
+  symbols: ['AAPL', 'MSFT', 'GOOGL', 'TSLA', 'NVDA']  # Stock symbols to analyze
+  start_date: '2020-01-01'                              # Analysis start date
+  end_date: '2023-12-31'                               # Analysis end date
+  use_mock_data: true                                  # Use synthetic data (true) or real market data (false)
+  sample_size: 1000                                    # Number of data points for synthetic data
+
+# Model Parameters
+models:
+  # Black-Scholes Model Configuration
+  black_scholes:
+    S: 100.0        # Current underlying price
+    K: 105.0        # Strike price
+    T: 0.25         # Time to expiration (years)
+    r: 0.05         # Risk-free rate
+    sigma: 0.2      # Volatility
+
+  # Heston Stochastic Volatility Model Configuration
+  heston:
+    S: 100.0        # Current underlying price
+    K: 105.0        # Strike price
+    T: 0.25         # Time to expiration (years)
+    r: 0.05         # Risk-free rate
+    v0: 0.04        # Initial variance
+    kappa: 2.0      # Mean reversion speed
+    theta: 0.04     # Long-term variance mean
+    sigma_v: 0.3    # Volatility of volatility
+    rho: -0.5       # Correlation between price and volatility
+
+  # Binomial Tree Model Configuration
+  binomial:
+    S: 100.0            # Current underlying price
+    K: 105.0            # Strike price
+    T: 0.25             # Time to expiration (years)
+    r: 0.05             # Risk-free rate
+    sigma: 0.2          # Volatility
+    n_steps: 100        # Number of time steps in tree
+    option_type: 'american'  # Option type: 'european' or 'american'
+
+# Risk Management Configuration
+risk:
+  var_confidence: [0.01, 0.05, 0.10]     # Confidence levels for VaR calculation
+  portfolio_weights: null                 # Portfolio weights (null for equal weights)
+  lookback_window: 252                    # Number of days for risk calculations
+  monte_carlo_simulations: 10000          # Number of MC simulations for VaR
+
+# Validation and Testing Configuration
+validation:
+  train_ratio: 0.7                        # Proportion of data for training
+  validation_ratio: 0.2                   # Proportion of data for validation
+  test_ratio: 0.1                         # Proportion of data for testing
+  cross_validation_folds: 5               # Number of CV folds
+  significance_level: 0.05                # Significance level for statistical tests
+
+# Output Configuration
+output:
+  save_results: true                      # Save results to files
+  results_dir: 'pipeline_results'         # Directory for output files
+  plot_results: true                      # Generate visualization plots
+  generate_report: true                   # Generate comprehensive report
+
+# Advanced Configuration
+advanced:
+  # Monte Carlo Configuration
+  monte_carlo:
+    seed: 42                              # Random seed for reproducibility
+    antithetic_variates: true             # Use antithetic variates for variance reduction
+    control_variates: false               # Use control variates
+
+  # Numerical Methods Configuration
+  numerical:
+    integration_method: 'simpson'         # Numerical integration method
+    tolerance: 1e-8                       # Numerical tolerance
+    max_iterations: 1000                  # Maximum iterations for optimization
+
+  # Parallel Processing Configuration
+  parallel:
+    use_multiprocessing: false            # Enable parallel processing
+    n_cores: 4                           # Number of CPU cores to use
+
+# Scenario Analysis Configuration
+scenarios:
+  # Market Stress Testing
+  stress_tests:
+    market_crash:
+      price_shock: -0.20                  # 20% price drop
+      volatility_spike: 2.0               # Volatility doubles
+
+    interest_rate_shock:
+      rate_increase: 0.02                 # 200 basis point increase
+
+    volatility_shock:
+      volatility_increase: 0.10           # Additional 10% volatility
+
+  # What-if Analysis
+  sensitivity_analysis:
+    price_range: [80, 120]                # Price range for sensitivity analysis
+    volatility_range: [0.10, 0.40]       # Volatility range
+    time_range: [0.1, 1.0]               # Time to expiration range
+
+# Model Calibration Configuration
+calibration:
+  # Optimization settings
+  optimization:
+    method: 'L-BFGS-B'                    # Optimization algorithm
+    max_function_evaluations: 1000        # Maximum function evaluations
+
+  # Heston calibration specific
+  heston_calibration:
+    initial_params:
+      v0: 0.04
+      kappa: 2.0
+      theta: 0.04
+      sigma_v: 0.3
+      rho: -0.5
+    bounds:
+      v0: [0.01, 0.5]
+      kappa: [0.1, 10.0]
+      theta: [0.01, 0.5]
+      sigma_v: [0.1, 2.0]
+      rho: [-0.9, 0.9]
+
+# Reporting Configuration
+reporting:
+  # Report sections to include
+  sections:
+    - executive_summary
+    - data_analysis
+    - model_results
+    - risk_analysis
+    - performance_metrics
+    - validation_results
+    - conclusions
+
+  # Chart configurations
+  charts:
+    price_history: true
+    returns_distribution: true
+    correlation_matrix: true
+    var_backtest: true
+    performance_attribution: true
+
+  # Export formats
+  export_formats: ['pdf', 'html', 'json']
+
+# Logging Configuration
+logging:
+  level: 'INFO'                           # Logging level: DEBUG, INFO, WARNING, ERROR
+  log_file: 'pipeline.log'               # Log file name
+  console_output: true                    # Show logs in console
+  detailed_timing: false                  # Include detailed timing information

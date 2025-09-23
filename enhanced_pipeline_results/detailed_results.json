@@ -1,0 +1,16 @@
+{
+  "portfolio_summary": {
+    "total_value": 193429.25338739782,
+    "stock_value": 192155.38733282825,
+    "option_value": 1273.8660545695716,
+    "stock_positions": 3,
+    "option_positions": 12,
+    "symbols": [
+      "GOOGL",
+      "AAPL",
+      "MSFT"
+    ]
+  },
+  "risk_alerts_count": 0,
+  "timestamp": "2025-09-23T18:44:35.482539"
+}

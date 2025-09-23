@@ -1,0 +1,735 @@
+2025-09-23 17:45:48,620 - INFO - ================================================================================
+2025-09-23 17:45:48,620 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 17:45:48,620 - INFO - ================================================================================
+2025-09-23 17:45:48,620 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 17:45:48,620 - INFO - Using mock data provider
+2025-09-23 17:45:48,620 - INFO - Generating synthetic data for AAPL
+2025-09-23 17:45:48,623 - ERROR - ❌ Pipeline failed with error: 'SampleDataGenerator' object has no attribute 'generate_price_series'
+2025-09-23 17:56:47,931 - INFO - ================================================================================
+2025-09-23 17:56:47,931 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 17:56:47,931 - INFO - ================================================================================
+2025-09-23 17:56:47,931 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 17:56:47,931 - INFO - Using mock data provider
+2025-09-23 17:56:47,931 - INFO - Generating synthetic data for AAPL
+2025-09-23 17:56:47,939 - INFO - Generating synthetic data for MSFT
+2025-09-23 17:56:47,942 - INFO - Generating synthetic data for GOOGL
+2025-09-23 17:56:47,946 - INFO - Preprocessing market data
+2025-09-23 17:56:47,949 - ERROR - ❌ Pipeline failed with error: 'DataPreprocessor' object has no attribute 'clean_data'
+2025-09-23 17:57:50,366 - INFO - ================================================================================
+2025-09-23 17:57:50,366 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 17:57:50,367 - INFO - ================================================================================
+2025-09-23 17:57:50,367 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 17:57:50,367 - INFO - Using mock data provider
+2025-09-23 17:57:50,367 - INFO - Generating synthetic data for AAPL
+2025-09-23 17:57:50,370 - INFO - Generating synthetic data for MSFT
+2025-09-23 17:57:50,373 - INFO - Generating synthetic data for GOOGL
+2025-09-23 17:57:50,377 - INFO - Preprocessing market data
+2025-09-23 17:57:50,385 - INFO - Processed 1461 records for AAPL
+2025-09-23 17:57:50,391 - INFO - Processed 1461 records for MSFT
+2025-09-23 17:57:50,397 - INFO - Processed 1461 records for GOOGL
+2025-09-23 17:57:50,397 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 17:57:50,397 - INFO - Implementing Black-Scholes model
+2025-09-23 17:57:50,397 - ERROR - ❌ Pipeline failed with error: BlackScholesModel.__init__() got an unexpected keyword argument 'S'
+2025-09-23 17:59:40,950 - INFO - ================================================================================
+2025-09-23 17:59:40,950 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 17:59:40,950 - INFO - ================================================================================
+2025-09-23 17:59:40,950 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 17:59:40,950 - INFO - Using mock data provider
+2025-09-23 17:59:40,950 - INFO - Generating synthetic data for AAPL
+2025-09-23 17:59:40,957 - INFO - Generating synthetic data for MSFT
+2025-09-23 17:59:40,961 - INFO - Generating synthetic data for GOOGL
+2025-09-23 17:59:40,965 - INFO - Preprocessing market data
+2025-09-23 17:59:40,976 - INFO - Processed 1461 records for AAPL
+2025-09-23 17:59:40,982 - INFO - Processed 1461 records for MSFT
+2025-09-23 17:59:40,988 - INFO - Processed 1461 records for GOOGL
+2025-09-23 17:59:40,988 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 17:59:40,988 - INFO - Implementing Black-Scholes model
+2025-09-23 17:59:40,989 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 17:59:40,989 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 17:59:40,989 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 17:59:40,991 - INFO - Heston Call Price: $0.0000
+2025-09-23 17:59:40,992 - INFO - Heston Put Price: $0.0000
+2025-09-23 17:59:40,992 - INFO - Implementing Binomial Tree model
+2025-09-23 17:59:40,999 - INFO - Binomial Call Price: $2.4858
+2025-09-23 17:59:40,999 - INFO - Binomial Put Price: $6.1815
+2025-09-23 17:59:40,999 - INFO - Model comparison:
+2025-09-23 17:59:41,004 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 17:59:41,004 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 17:59:41,004 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 17:59:41,005 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 17:59:41,005 - ERROR - ❌ Pipeline failed with error: MonteCarloVaR.calculate_var() got an unexpected keyword argument 'n_simulations'
+2025-09-23 18:00:54,065 - INFO - ================================================================================
+2025-09-23 18:00:54,066 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:00:54,066 - INFO - ================================================================================
+2025-09-23 18:00:54,066 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:00:54,066 - INFO - Using mock data provider
+2025-09-23 18:00:54,066 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:00:54,073 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:00:54,076 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:00:54,080 - INFO - Preprocessing market data
+2025-09-23 18:00:54,089 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:00:54,095 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:00:54,100 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:00:54,100 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:00:54,100 - INFO - Implementing Black-Scholes model
+2025-09-23 18:00:54,101 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:00:54,101 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:00:54,101 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:00:54,103 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:00:54,103 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:00:54,103 - INFO - Implementing Binomial Tree model
+2025-09-23 18:00:54,110 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:00:54,110 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:00:54,110 - INFO - Model comparison:
+2025-09-23 18:00:54,113 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:00:54,113 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:00:54,113 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:00:54,114 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:00:54,114 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0148
+2025-09-23 18:00:54,115 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0103
+2025-09-23 18:00:54,115 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0079
+2025-09-23 18:00:54,115 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:00:54,115 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:00:54,116 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:00:54,116 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:00:54,116 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:00:54,116 - ERROR - ❌ Pipeline failed with error: 'numpy.float64' object is not callable
+2025-09-23 18:01:36,232 - INFO - ================================================================================
+2025-09-23 18:01:36,232 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:01:36,232 - INFO - ================================================================================
+2025-09-23 18:01:36,232 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:01:36,232 - INFO - Using mock data provider
+2025-09-23 18:01:36,232 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:01:36,240 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:01:36,244 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:01:36,247 - INFO - Preprocessing market data
+2025-09-23 18:01:36,259 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:01:36,264 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:01:36,270 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:01:36,270 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:01:36,270 - INFO - Implementing Black-Scholes model
+2025-09-23 18:01:36,272 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:01:36,272 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:01:36,272 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:01:36,275 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:01:36,275 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:01:36,275 - INFO - Implementing Binomial Tree model
+2025-09-23 18:01:36,282 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:01:36,282 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:01:36,283 - INFO - Model comparison:
+2025-09-23 18:01:36,286 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:01:36,286 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:01:36,286 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:01:36,287 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:01:36,288 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0148
+2025-09-23 18:01:36,288 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0106
+2025-09-23 18:01:36,289 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0086
+2025-09-23 18:01:36,289 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:01:36,289 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:01:36,289 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:01:36,289 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:01:36,289 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:01:36,289 - ERROR - ❌ Pipeline failed with error: 'PortfolioRiskMetrics' object has no attribute 'diversification_ratio'
+2025-09-23 18:03:29,664 - INFO - ================================================================================
+2025-09-23 18:03:29,664 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:03:29,664 - INFO - ================================================================================
+2025-09-23 18:03:29,664 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:03:29,664 - INFO - Using mock data provider
+2025-09-23 18:03:29,664 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:03:29,668 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:03:29,671 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:03:29,675 - INFO - Preprocessing market data
+2025-09-23 18:03:29,683 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:03:29,690 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:03:29,696 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:03:29,696 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:03:29,696 - INFO - Implementing Black-Scholes model
+2025-09-23 18:03:29,697 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:03:29,697 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:03:29,697 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:03:29,699 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:03:29,699 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:03:29,699 - INFO - Implementing Binomial Tree model
+2025-09-23 18:03:29,706 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:03:29,706 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:03:29,707 - INFO - Model comparison:
+2025-09-23 18:03:29,709 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:03:29,710 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:03:29,710 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:03:29,711 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:03:29,711 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0142
+2025-09-23 18:03:29,712 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0107
+2025-09-23 18:03:29,712 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0080
+2025-09-23 18:03:29,712 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:03:29,713 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:03:29,713 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:03:29,713 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:03:29,713 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:03:29,719 - ERROR - ❌ Pipeline failed with error: 'PortfolioRiskMetrics' object has no attribute 'percentage_contribution_to_risk'
+2025-09-23 18:04:59,675 - INFO - ================================================================================
+2025-09-23 18:04:59,675 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:04:59,675 - INFO - ================================================================================
+2025-09-23 18:04:59,675 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:04:59,675 - INFO - Using mock data provider
+2025-09-23 18:04:59,675 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:04:59,683 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:04:59,686 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:04:59,690 - INFO - Preprocessing market data
+2025-09-23 18:04:59,702 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:04:59,708 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:04:59,713 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:04:59,713 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:04:59,713 - INFO - Implementing Black-Scholes model
+2025-09-23 18:04:59,715 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:04:59,715 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:04:59,715 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:04:59,717 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:04:59,717 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:04:59,717 - INFO - Implementing Binomial Tree model
+2025-09-23 18:04:59,724 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:04:59,724 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:04:59,725 - INFO - Model comparison:
+2025-09-23 18:04:59,728 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:04:59,728 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:04:59,728 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:04:59,729 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:04:59,730 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0150
+2025-09-23 18:04:59,730 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0006, MC: 0.0110
+2025-09-23 18:04:59,731 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0090
+2025-09-23 18:04:59,731 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:04:59,731 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:04:59,731 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:04:59,731 - INFO - CVaR 10%: 0.0014
+2025-09-23 18:04:59,731 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:04:59,733 - ERROR - ❌ Pipeline failed with error: 'PortfolioRiskMetrics' object has no attribute 'percentage_contribution_to_risk'
+2025-09-23 18:06:03,137 - INFO - ================================================================================
+2025-09-23 18:06:03,138 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:06:03,138 - INFO - ================================================================================
+2025-09-23 18:06:03,138 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:06:03,138 - INFO - Using mock data provider
+2025-09-23 18:06:03,138 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:06:03,145 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:06:03,149 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:06:03,152 - INFO - Preprocessing market data
+2025-09-23 18:06:03,161 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:06:03,166 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:06:03,172 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:06:03,172 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:06:03,172 - INFO - Implementing Black-Scholes model
+2025-09-23 18:06:03,173 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:06:03,173 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:06:03,173 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:06:03,175 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:06:03,175 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:06:03,175 - INFO - Implementing Binomial Tree model
+2025-09-23 18:06:03,182 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:06:03,182 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:06:03,183 - INFO - Model comparison:
+2025-09-23 18:06:03,186 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:06:03,186 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:06:03,186 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:06:03,187 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:06:03,188 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0142
+2025-09-23 18:06:03,188 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0108
+2025-09-23 18:06:03,189 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0085
+2025-09-23 18:06:03,189 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:06:03,189 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:06:03,189 - INFO - CVaR 5%: 0.0006
+2025-09-23 18:06:03,189 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:06:03,189 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:06:03,191 - INFO - Calculating coherent risk measures
+2025-09-23 18:06:03,191 - ERROR - ❌ Pipeline failed with error: 'CoherentRiskMeasures' object has no attribute 'conditional_var'
+2025-09-23 18:09:22,263 - INFO - ================================================================================
+2025-09-23 18:09:22,263 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:09:22,263 - INFO - ================================================================================
+2025-09-23 18:09:22,263 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:09:22,263 - INFO - Using mock data provider
+2025-09-23 18:09:22,263 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:09:22,267 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:09:22,270 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:09:22,274 - INFO - Preprocessing market data
+2025-09-23 18:09:22,281 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:09:22,287 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:09:22,292 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:09:22,292 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:09:22,292 - INFO - Implementing Black-Scholes model
+2025-09-23 18:09:22,293 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:09:22,293 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:09:22,293 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:09:22,296 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:09:22,296 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:09:22,296 - INFO - Implementing Binomial Tree model
+2025-09-23 18:09:22,303 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:09:22,303 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:09:22,303 - INFO - Model comparison:
+2025-09-23 18:09:22,305 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:09:22,305 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:09:22,306 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:09:22,306 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:09:22,307 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0144
+2025-09-23 18:09:22,307 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0095
+2025-09-23 18:09:22,308 - INFO - VaR 10% - Historical: 0.0010, Parametric: 0.0010, MC: 0.0079
+2025-09-23 18:09:22,308 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:09:22,308 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:09:22,308 - INFO - CVaR 5%: 0.0006
+2025-09-23 18:09:22,308 - INFO - CVaR 10%: 0.0012
+2025-09-23 18:09:22,308 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:09:22,310 - INFO - Calculating coherent risk measures
+2025-09-23 18:09:22,311 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:09:22,312 - INFO - Performing model validation
+2025-09-23 18:09:22,312 - ERROR - ❌ Pipeline failed with error: Can't instantiate abstract class ModelValidator with abstract methods generate_validation_report, validate_model
+2025-09-23 18:10:32,025 - INFO - ================================================================================
+2025-09-23 18:10:32,026 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:10:32,026 - INFO - ================================================================================
+2025-09-23 18:10:32,026 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:10:32,026 - INFO - Using mock data provider
+2025-09-23 18:10:32,026 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:10:32,033 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:10:32,037 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:10:32,041 - INFO - Preprocessing market data
+2025-09-23 18:10:32,054 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:10:32,062 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:10:32,068 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:10:32,068 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:10:32,068 - INFO - Implementing Black-Scholes model
+2025-09-23 18:10:32,069 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:10:32,069 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:10:32,069 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:10:32,072 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:10:32,072 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:10:32,072 - INFO - Implementing Binomial Tree model
+2025-09-23 18:10:32,079 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:10:32,079 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:10:32,080 - INFO - Model comparison:
+2025-09-23 18:10:32,083 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:10:32,083 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:10:32,083 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:10:32,084 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:10:32,084 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0120
+2025-09-23 18:10:32,085 - INFO - VaR 5% - Historical: 0.0004, Parametric: 0.0005, MC: 0.0090
+2025-09-23 18:10:32,085 - INFO - VaR 10% - Historical: 0.0009, Parametric: 0.0009, MC: 0.0074
+2025-09-23 18:10:32,085 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:10:32,085 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:10:32,086 - INFO - CVaR 5%: 0.0005
+2025-09-23 18:10:32,086 - INFO - CVaR 10%: 0.0011
+2025-09-23 18:10:32,086 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:10:32,088 - INFO - Calculating coherent risk measures
+2025-09-23 18:10:32,090 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:10:32,090 - INFO - Performing model validation
+2025-09-23 18:10:32,090 - INFO - Data split - Train: 1021, Validation: 292, Test: 147
+2025-09-23 18:10:32,090 - INFO - Performing backtesting analysis
+2025-09-23 18:10:32,155 - ERROR - ❌ Pipeline failed with error: 'BacktestFramework' object has no attribute 'backtest_var_model'
+2025-09-23 18:11:20,831 - INFO - ================================================================================
+2025-09-23 18:11:20,832 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:11:20,832 - INFO - ================================================================================
+2025-09-23 18:11:20,832 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:11:20,832 - INFO - Using mock data provider
+2025-09-23 18:11:20,832 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:11:20,839 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:11:20,843 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:11:20,846 - INFO - Preprocessing market data
+2025-09-23 18:11:20,857 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:11:20,863 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:11:20,868 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:11:20,869 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:11:20,869 - INFO - Implementing Black-Scholes model
+2025-09-23 18:11:20,870 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:11:20,870 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:11:20,870 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:11:20,873 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:11:20,873 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:11:20,873 - INFO - Implementing Binomial Tree model
+2025-09-23 18:11:20,880 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:11:20,880 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:11:20,880 - INFO - Model comparison:
+2025-09-23 18:11:20,883 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:11:20,883 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:11:20,884 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:11:20,884 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:11:20,886 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0140
+2025-09-23 18:11:20,886 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0102
+2025-09-23 18:11:20,887 - INFO - VaR 10% - Historical: 0.0010, Parametric: 0.0010, MC: 0.0084
+2025-09-23 18:11:20,887 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:11:20,887 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:11:20,887 - INFO - CVaR 5%: 0.0006
+2025-09-23 18:11:20,887 - INFO - CVaR 10%: 0.0012
+2025-09-23 18:11:20,887 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:11:20,888 - INFO - Calculating coherent risk measures
+2025-09-23 18:11:20,890 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:11:20,890 - INFO - Performing model validation
+2025-09-23 18:11:20,890 - INFO - Data split - Train: 1021, Validation: 292, Test: 147
+2025-09-23 18:11:20,890 - INFO - Performing backtesting analysis
+2025-09-23 18:11:20,955 - ERROR - ❌ Pipeline failed with error: BacktestFramework.risk_model_backtest() got an unexpected keyword argument 'confidence_level'
+2025-09-23 18:12:03,575 - INFO - ================================================================================
+2025-09-23 18:12:03,576 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:12:03,576 - INFO - ================================================================================
+2025-09-23 18:12:03,576 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:12:03,576 - INFO - Using mock data provider
+2025-09-23 18:12:03,576 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:12:03,580 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:12:03,586 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:12:03,590 - INFO - Preprocessing market data
+2025-09-23 18:12:03,598 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:12:03,603 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:12:03,608 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:12:03,608 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:12:03,608 - INFO - Implementing Black-Scholes model
+2025-09-23 18:12:03,609 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:12:03,610 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:12:03,610 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:12:03,613 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:12:03,613 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:12:03,613 - INFO - Implementing Binomial Tree model
+2025-09-23 18:12:03,620 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:12:03,620 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:12:03,620 - INFO - Model comparison:
+2025-09-23 18:12:03,623 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:12:03,623 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:12:03,624 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:12:03,625 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:12:03,626 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0154
+2025-09-23 18:12:03,626 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0109
+2025-09-23 18:12:03,627 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0088
+2025-09-23 18:12:03,627 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:12:03,627 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:12:03,627 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:12:03,627 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:12:03,627 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:12:03,630 - INFO - Calculating coherent risk measures
+2025-09-23 18:12:03,631 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:12:03,631 - INFO - Performing model validation
+2025-09-23 18:12:03,632 - INFO - Data split - Train: 1021, Validation: 292, Test: 147
+2025-09-23 18:12:03,632 - INFO - Performing backtesting analysis
+2025-09-23 18:12:03,703 - INFO - Performing statistical tests
+2025-09-23 18:12:03,858 - INFO - 
+📈 STAGE 5: Performance Analysis & Reporting
+2025-09-23 18:12:03,858 - INFO - Analyzing portfolio performance
+2025-09-23 18:12:03,865 - INFO - Performing benchmark comparison
+2025-09-23 18:12:03,866 - INFO - Portfolio Alpha: 0.000165
+2025-09-23 18:12:03,866 - INFO - Portfolio Beta: 0.002822
+2025-09-23 18:12:03,866 - INFO - Sharpe Ratio: 0.1606
+2025-09-23 18:12:03,866 - INFO - Maximum Drawdown: -0.3118
+2025-09-23 18:12:08,369 - INFO - Performance plots saved to pipeline_results/performance_analysis.png
+2025-09-23 18:12:08,369 - INFO - 
+📋 Generating Final Report
+2025-09-23 18:12:08,391 - ERROR - ❌ Pipeline failed with error: Object of type Timestamp is not JSON serializable
+2025-09-23 18:13:07,588 - INFO - ================================================================================
+2025-09-23 18:13:07,588 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:13:07,588 - INFO - ================================================================================
+2025-09-23 18:13:07,588 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:13:07,588 - INFO - Using mock data provider
+2025-09-23 18:13:07,588 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:13:07,592 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:13:07,596 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:13:07,599 - INFO - Preprocessing market data
+2025-09-23 18:13:07,606 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:13:07,611 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:13:07,616 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:13:07,616 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:13:07,616 - INFO - Implementing Black-Scholes model
+2025-09-23 18:13:07,616 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:13:07,617 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:13:07,617 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:13:07,619 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:13:07,619 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:13:07,619 - INFO - Implementing Binomial Tree model
+2025-09-23 18:13:07,626 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:13:07,626 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:13:07,626 - INFO - Model comparison:
+2025-09-23 18:13:07,628 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:13:07,628 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:13:07,629 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:13:07,629 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:13:07,630 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0153
+2025-09-23 18:13:07,630 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0106
+2025-09-23 18:13:07,631 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0086
+2025-09-23 18:13:07,631 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:13:07,631 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:13:07,631 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:13:07,631 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:13:07,631 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:13:07,632 - INFO - Calculating coherent risk measures
+2025-09-23 18:13:07,633 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:13:07,634 - INFO - Performing model validation
+2025-09-23 18:13:07,634 - INFO - Data split - Train: 1021, Validation: 292, Test: 147
+2025-09-23 18:13:07,634 - INFO - Performing backtesting analysis
+2025-09-23 18:13:07,696 - INFO - Performing statistical tests
+2025-09-23 18:13:07,797 - INFO - 
+📈 STAGE 5: Performance Analysis & Reporting
+2025-09-23 18:13:07,797 - INFO - Analyzing portfolio performance
+2025-09-23 18:13:07,800 - INFO - Performing benchmark comparison
+2025-09-23 18:13:07,800 - INFO - Portfolio Alpha: 0.000146
+2025-09-23 18:13:07,800 - INFO - Portfolio Beta: -0.016024
+2025-09-23 18:13:07,800 - INFO - Sharpe Ratio: 0.0996
+2025-09-23 18:13:07,800 - INFO - Maximum Drawdown: -0.1421
+2025-09-23 18:13:16,086 - INFO - Performance plots saved to pipeline_results/performance_analysis.png
+2025-09-23 18:13:16,086 - INFO - 
+📋 Generating Final Report
+2025-09-23 18:13:16,105 - ERROR - ❌ Pipeline failed with error: Object of type Timestamp is not JSON serializable
+2025-09-23 18:14:09,263 - INFO - ================================================================================
+2025-09-23 18:14:09,263 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:14:09,263 - INFO - ================================================================================
+2025-09-23 18:14:09,263 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:14:09,263 - INFO - Using mock data provider
+2025-09-23 18:14:09,263 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:14:09,267 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:14:09,270 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:14:09,273 - INFO - Preprocessing market data
+2025-09-23 18:14:09,280 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:14:09,285 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:14:09,290 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:14:09,290 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:14:09,290 - INFO - Implementing Black-Scholes model
+2025-09-23 18:14:09,291 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:14:09,291 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:14:09,291 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:14:09,294 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:14:09,294 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:14:09,294 - INFO - Implementing Binomial Tree model
+2025-09-23 18:14:09,300 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:14:09,300 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:14:09,301 - INFO - Model comparison:
+2025-09-23 18:14:09,303 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:14:09,303 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:14:09,303 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:14:09,304 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:14:09,304 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0153
+2025-09-23 18:14:09,305 - INFO - VaR 5% - Historical: 0.0006, Parametric: 0.0006, MC: 0.0111
+2025-09-23 18:14:09,305 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0090
+2025-09-23 18:14:09,305 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:14:09,305 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:14:09,306 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:14:09,306 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:14:09,306 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:14:09,307 - INFO - Calculating coherent risk measures
+2025-09-23 18:14:09,309 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:14:09,309 - INFO - Performing model validation
+2025-09-23 18:14:09,309 - INFO - Data split - Train: 1021, Validation: 292, Test: 147
+2025-09-23 18:14:09,309 - INFO - Performing backtesting analysis
+2025-09-23 18:14:09,371 - INFO - Performing statistical tests
+2025-09-23 18:14:09,471 - INFO - 
+📈 STAGE 5: Performance Analysis & Reporting
+2025-09-23 18:14:09,471 - INFO - Analyzing portfolio performance
+2025-09-23 18:14:09,473 - INFO - Performing benchmark comparison
+2025-09-23 18:14:09,474 - INFO - Portfolio Alpha: 0.000099
+2025-09-23 18:14:09,474 - INFO - Portfolio Beta: -0.001638
+2025-09-23 18:14:09,474 - INFO - Sharpe Ratio: -0.0105
+2025-09-23 18:14:09,474 - INFO - Maximum Drawdown: -0.2842
+2025-09-23 18:14:12,286 - INFO - Performance plots saved to pipeline_results/performance_analysis.png
+2025-09-23 18:14:12,286 - INFO - 
+📋 Generating Final Report
+2025-09-23 18:14:12,303 - ERROR - ❌ Pipeline failed with error: Object of type Timestamp is not JSON serializable
+2025-09-23 18:15:53,423 - INFO - ================================================================================
+2025-09-23 18:15:53,423 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:15:53,423 - INFO - ================================================================================
+2025-09-23 18:15:53,423 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:15:53,423 - INFO - Using mock data provider
+2025-09-23 18:15:53,423 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:15:53,427 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:15:53,430 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:15:53,434 - INFO - Preprocessing market data
+2025-09-23 18:15:53,441 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:15:53,446 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:15:53,452 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:15:53,452 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:15:53,452 - INFO - Implementing Black-Scholes model
+2025-09-23 18:15:53,453 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:15:53,453 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:15:53,453 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:15:53,455 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:15:53,455 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:15:53,455 - INFO - Implementing Binomial Tree model
+2025-09-23 18:15:53,462 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:15:53,462 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:15:53,462 - INFO - Model comparison:
+2025-09-23 18:15:53,465 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:15:53,465 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:15:53,465 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:15:53,466 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:15:53,466 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0147
+2025-09-23 18:15:53,467 - INFO - VaR 5% - Historical: 0.0005, Parametric: 0.0005, MC: 0.0111
+2025-09-23 18:15:53,467 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0085
+2025-09-23 18:15:53,467 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:15:53,467 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:15:53,467 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:15:53,468 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:15:53,468 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:15:53,469 - INFO - Calculating coherent risk measures
+2025-09-23 18:15:53,470 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:15:53,470 - INFO - Performing model validation
+2025-09-23 18:15:53,470 - INFO - Data split - Train: 1021, Validation: 292, Test: 147
+2025-09-23 18:15:53,470 - INFO - Performing backtesting analysis
+2025-09-23 18:15:53,532 - INFO - Performing statistical tests
+2025-09-23 18:15:53,637 - INFO - 
+📈 STAGE 5: Performance Analysis & Reporting
+2025-09-23 18:15:53,637 - INFO - Analyzing portfolio performance
+2025-09-23 18:15:53,640 - INFO - Performing benchmark comparison
+2025-09-23 18:15:53,640 - INFO - Portfolio Alpha: 0.000037
+2025-09-23 18:15:53,640 - INFO - Portfolio Beta: 0.004039
+2025-09-23 18:15:53,640 - INFO - Sharpe Ratio: -0.1436
+2025-09-23 18:15:53,640 - INFO - Maximum Drawdown: -0.2992
+2025-09-23 18:15:59,281 - INFO - Performance plots saved to pipeline_results/performance_analysis.png
+2025-09-23 18:15:59,281 - INFO - 
+📋 Generating Final Report
+2025-09-23 18:15:59,281 - INFO - JSON serialization skipped due to complex nested objects
+2025-09-23 18:15:59,282 - INFO - Final report saved to pipeline_results/pipeline_report.md
+2025-09-23 18:15:59,282 - INFO - Results data saved to pipeline_results/pipeline_results.json
+2025-09-23 18:15:59,282 - INFO - 
+================================================================================
+2025-09-23 18:15:59,282 - INFO - ✅ PIPELINE COMPLETED SUCCESSFULLY
+2025-09-23 18:15:59,282 - INFO - ================================================================================
+2025-09-23 18:16:29,933 - INFO - ================================================================================
+2025-09-23 18:16:29,933 - INFO - STARTING DERIVATIVES RISK MANAGEMENT PIPELINE
+2025-09-23 18:16:29,933 - INFO - ================================================================================
+2025-09-23 18:16:29,933 - INFO - 
+🔄 STAGE 1: Data Acquisition & Preprocessing
+2025-09-23 18:16:29,933 - INFO - Using mock data provider
+2025-09-23 18:16:29,933 - INFO - Generating synthetic data for AAPL
+2025-09-23 18:16:29,937 - INFO - Generating synthetic data for MSFT
+2025-09-23 18:16:29,940 - INFO - Generating synthetic data for GOOGL
+2025-09-23 18:16:29,943 - INFO - Preprocessing market data
+2025-09-23 18:16:29,950 - INFO - Processed 1461 records for AAPL
+2025-09-23 18:16:29,955 - INFO - Processed 1461 records for MSFT
+2025-09-23 18:16:29,960 - INFO - Processed 1461 records for GOOGL
+2025-09-23 18:16:29,961 - INFO - 
+📊 STAGE 2: Model Implementation & Pricing
+2025-09-23 18:16:29,961 - INFO - Implementing Black-Scholes model
+2025-09-23 18:16:29,961 - INFO - Black-Scholes Call Price: $2.4779
+2025-09-23 18:16:29,961 - INFO - Black-Scholes Put Price: $6.1736
+2025-09-23 18:16:29,961 - INFO - Implementing Heston stochastic volatility model
+2025-09-23 18:16:29,964 - INFO - Heston Call Price: $0.0000
+2025-09-23 18:16:29,964 - INFO - Heston Put Price: $0.0000
+2025-09-23 18:16:29,964 - INFO - Implementing Binomial Tree model
+2025-09-23 18:16:29,971 - INFO - Binomial Call Price: $2.4858
+2025-09-23 18:16:29,971 - INFO - Binomial Put Price: $6.1815
+2025-09-23 18:16:29,971 - INFO - Model comparison:
+2025-09-23 18:16:29,973 - INFO - 
+            Black-Scholes  Heston  Binomial
+Call Price       2.477902       0  2.485786
+Put Price        6.173571       0  6.181455
+2025-09-23 18:16:29,973 - INFO - 
+⚠️ STAGE 3: Risk Management & Analysis
+2025-09-23 18:16:29,974 - INFO - Analyzing portfolio with 1460 observations
+2025-09-23 18:16:29,974 - INFO - Calculating Value-at-Risk (VaR)
+2025-09-23 18:16:29,975 - INFO - VaR 1% - Historical: 0.0001, Parametric: 0.0001, MC: 0.0149
+2025-09-23 18:16:29,975 - INFO - VaR 5% - Historical: 0.0006, Parametric: 0.0006, MC: 0.0112
+2025-09-23 18:16:29,976 - INFO - VaR 10% - Historical: 0.0011, Parametric: 0.0011, MC: 0.0088
+2025-09-23 18:16:29,976 - INFO - Calculating Conditional Value-at-Risk (CVaR)
+2025-09-23 18:16:29,976 - INFO - CVaR 1%: 0.0001
+2025-09-23 18:16:29,976 - INFO - CVaR 5%: 0.0007
+2025-09-23 18:16:29,976 - INFO - CVaR 10%: 0.0013
+2025-09-23 18:16:29,976 - INFO - Analyzing portfolio risk metrics
+2025-09-23 18:16:29,977 - INFO - Calculating coherent risk measures
+2025-09-23 18:16:29,979 - INFO - 
+🧪 STAGE 4: Model Validation & Testing
+2025-09-23 18:16:29,979 - INFO - Performing model validation
+2025-09-23 18:16:29,979 - INFO - Data split - Train: 1021, Validation: 292, Test: 147
+2025-09-23 18:16:29,979 - INFO - Performing backtesting analysis
+2025-09-23 18:16:30,050 - INFO - Performing statistical tests
+2025-09-23 18:16:30,144 - INFO - 
+📈 STAGE 5: Performance Analysis & Reporting
+2025-09-23 18:16:30,144 - INFO - Analyzing portfolio performance
+2025-09-23 18:16:30,147 - INFO - Performing benchmark comparison
+2025-09-23 18:16:30,148 - INFO - Portfolio Alpha: -0.000070
+2025-09-23 18:16:30,148 - INFO - Portfolio Beta: 0.002004
+2025-09-23 18:16:30,148 - INFO - Sharpe Ratio: -0.3992
+2025-09-23 18:16:30,148 - INFO - Maximum Drawdown: -0.2530
+2025-09-23 18:16:33,508 - INFO - Performance plots saved to pipeline_results/performance_analysis.png
+2025-09-23 18:16:33,508 - INFO - 
+📋 Generating Final Report
+2025-09-23 18:16:33,508 - INFO - JSON serialization skipped due to complex nested objects
+2025-09-23 18:16:33,509 - INFO - Final report saved to pipeline_results/pipeline_report.md
+2025-09-23 18:16:33,509 - INFO - Results data saved to pipeline_results/pipeline_results.json
+2025-09-23 18:16:33,509 - INFO - 
+================================================================================
+2025-09-23 18:16:33,509 - INFO - ✅ PIPELINE COMPLETED SUCCESSFULLY
+2025-09-23 18:16:33,509 - INFO - ================================================================================
