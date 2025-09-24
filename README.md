@@ -34,51 +34,24 @@ Pure Mathematics → Applied Mathematics → Financial Models
 - Real Analysis        - Numerical Methods     - VaR/CVaR
 - Optimization         - Parameter Estimation  - Risk Attribution
 ```
-
 ## Project Structure
-```
-Derivatives-Risk-Management/
-├── theory/                    # Mathematical foundations & theoretical framework
-│   ├── Theoretical_Framework.md    # Pure → Applied → Financial progression
-│   └── Detailed_Methods.md         # Implementation details & formulas
-├── models/                    # Pricing models & derivatives
-│   ├── base_model.py             # Abstract base class
-│   ├── black_scholes.py          # Black-Scholes implementation
-│   ├── heston.py                 # Stochastic volatility model
-│   ├── binomial_tree.py          # American option pricing
-│   ├── implied_volatility.py     # Implied volatility calculations
-│   ├── option_portfolio.py       # Portfolio option management
-│   ├── multi_agent/              # Multi-Agent Pricing Framework
-│   │   ├── base_agent.py           # Agent base classes and market state
-│   │   ├── market_maker.py         # Market maker agents with inventory risk
-│   │   ├── arbitrageur.py          # Arbitrageur agents with capital constraints
-│   │   ├── noise_trader.py         # Behavioral noise trader agents
-│   │   └── agent_interaction.py    # Market equilibrium computation engine
-│   └── pricing_deviation/       # Pricing Deviation Analysis
-│       ├── deviation_engine.py     # Core deviation computation
-│       ├── smile_generator.py      # Volatility smile generation
-│       ├── risk_model_calibrator.py # Risk model calibration
-│       └── quantitative_analyzer.py # Advanced quantitative analytics
-├── risk/                      # Risk management & portfolio analysis
-│   ├── var_models.py             # Value-at-Risk implementations
-│   ├── cvar_models.py            # Conditional VaR & coherent measures
-│   ├── portfolio_risk.py         # Portfolio-level risk metrics
-│   ├── risk_measures.py          # General risk measure framework
-│   ├── option_risk.py            # Options-specific risk metrics
-│   └── integrated_risk.py        # Integrated risk management
-├── data/                      # Data infrastructure & preprocessing
-│   ├── market_data.py            # Market data providers
-│   ├── data_preprocessing.py     # Cleaning & transformation
-│   ├── sample_generators.py      # Synthetic data generation
-│   └── sample_data/              # Sample data directory
-├── evaluation_modules/        # Model validation & testing
-│   ├── model_validation.py       # Backtesting & validation framework
-│   ├── performance_metrics.py    # Performance & risk-adjusted metrics
-│   └── statistical_tests.py      # Statistical testing suite
-├── notebooks/                 # Jupyter notebooks for analysis
-├── multi_agent_analysis.py    # Multi-Agent analysis (MAIN DEMO)
-├── test_framework.py          # Comprehensive test suite
-└── config.yaml               # Configuration parameters (includes multi-agent settings)
+
+The repository is organized into modular components, balancing **theory, modeling, risk management, and simulation**.  
+Key directories and scripts:
+
+```bash
+MultiAgent_OptionPricing/
+├── models/              # Option pricing models (BS, Heston, Binomial, etc.)
+│   ├── multi_agent/     # Multi-agent framework (market makers, arbitrageurs, interaction engine)
+│   └── pricing_deviation/ # Volatility smile & pricing deviation analysis
+├── risk/                # Risk management tools (VaR, CVaR, portfolio metrics)
+├── data/                # Market data handlers, preprocessing, synthetic generators
+├── evaluation/          # Backtesting, validation, and statistical testing
+├── notebooks/           # Jupyter notebooks for experiments & demos
+├── multi_agent_analysis.py   # Main demo: agent interactions → equilibrium pricing
+├── test_framework.py         # Unit tests for models and risk metrics
+└── config.yaml               # Central configuration (multi-agent & model settings)
+
 ```
 
 ## Quick Start
