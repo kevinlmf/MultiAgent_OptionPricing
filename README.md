@@ -87,7 +87,7 @@ Derivatives-Risk-Management/
 
 ### Multi-Agent Option Pricing Demo (Recommended)
 ```bash
-git clone <repository-url>
+git clone https://github.com/kevinlmf/MultiAgent_OptionPricing
 cd Derivatives-Risk-Management
 
 # Install dependencies
@@ -277,20 +277,6 @@ This framework follows rigorous mathematical principles. When contributing:
 4. Follow the Pure Math → Applied Math → Financial Models progression
 5. **For Multi-Agent Components**: Validate agent behaviors against empirical studies
 
-## Citation
 
-If you use this framework in academic research, please cite:
-
-```bibtex
-@misc{derivatives_risk_management_2024,
-  title={Derivatives Risk Management Framework with Multi-Agent Option Pricing},
-  author={Quantitative Finance Research Group},
-  year={2024},
-  howpublished={\url{https://github.com/your-repo/Derivatives_Risk_Management}},
-  note={Multi-agent framework for explaining option pricing deviations}
-}
-```
-
----
 
 *Bridging pure mathematics, market microstructure, and practical finance through rigorous quantitative modeling and multi-agent simulation.*
