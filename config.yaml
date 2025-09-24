@@ -48,6 +48,74 @@ risk:
   lookback_window: 252                    # Number of days for risk calculations
   monte_carlo_simulations: 10000          # Number of MC simulations for VaR
 
+# Multi-Agent Option Pricing Configuration
+multi_agent:
+  # Enable multi-agent pricing deviation analysis
+  enabled: true
+
+  # Market Maker Configuration
+  market_makers:
+    count: 3                              # Number of market makers
+    initial_cash: 2000000.0               # Initial capital per market maker
+    max_inventory: 100.0                  # Maximum inventory per option
+    risk_aversion: [0.005, 0.01, 0.02]   # Risk aversion levels (low, medium, high)
+    base_spread: 0.015                    # Base bid-ask spread (1.5%)
+    volatility_adjustment: 0.4            # Spread adjustment for volatility
+    inventory_risk_factor: 0.008          # How much inventory affects quotes
+
+  # Arbitrageur Configuration
+  arbitrageurs:
+    count: 2                              # Number of arbitrageurs
+    initial_cash: 5000000.0               # Initial capital per arbitrageur
+    deviation_threshold: 0.008            # Minimum deviation to arbitrage (0.8%)
+    max_capital_per_trade: 150000.0       # Maximum capital per arbitrage
+    max_total_exposure: 1500000.0         # Maximum total exposure
+    transaction_costs: 0.0015             # Transaction cost rate (0.15%)
+    borrowing_costs: 0.025                # Annual borrowing cost rate
+    max_holding_period: 0.083             # Max holding period (~1 month)
+
+  # Noise Trader Configuration
+  noise_traders:
+    count: 15                             # Number of noise traders
+    initial_cash: 400000.0                # Initial capital per noise trader
+    behavior_types: ['momentum', 'mean_reversion', 'overconfident', 'herding', 'random']
+    trade_frequency: 0.12                 # Base trading probability per period
+    trade_size_mean: 8.0                  # Average trade size
+    trade_size_std: 4.0                   # Standard deviation of trade size
+    overconfidence_factor: 1.4            # Overconfidence multiplier
+    volatility_bias: 0.25                 # Attraction to high volatility
+    moneyness_bias: 0.15                  # Preference for certain strikes
+
+  # Market Structure Parameters
+  market_structure:
+    tick_size: 0.01                       # Minimum price increment
+    lot_size: 1                           # Minimum trade size
+    impact_coefficient: 0.0008            # Price impact per unit flow
+    max_spread: 0.15                      # Maximum allowed spread (15%)
+
+  # Simulation Parameters
+  simulation:
+    time_steps: 100                       # Number of time steps to simulate
+    time_horizon: 0.25                    # Total time horizon (years)
+    random_seed: 42                       # Random seed for reproducibility
+    market_open_probability: 0.95         # Probability market is open each period
+
+  # Risk Analysis Parameters
+  risk_analysis:
+    confidence_levels: [0.90, 0.95, 0.99, 0.995]  # VaR confidence levels
+    hedge_horizons: [1, 5, 10, 21]       # Hedge effectiveness analysis periods
+    stress_scenarios:                      # Predefined stress scenarios
+      - name: "arbitrage_constraint"
+        reduce_arbitrage_capital: 0.3     # Reduce arbitrage capital by 70%
+      - name: "noise_trader_surge"
+        increase_noise_trader_activity: 3.0  # Triple noise trading
+      - name: "market_maker_stress"
+        widen_mm_spreads: 2.5             # 2.5x wider spreads
+      - name: "combined_stress"
+        reduce_arbitrage_capital: 0.5
+        increase_noise_trader_activity: 2.0
+        widen_mm_spreads: 1.8
+
 # Validation and Testing Configuration
 validation:
   train_ratio: 0.7                        # Proportion of data for training
