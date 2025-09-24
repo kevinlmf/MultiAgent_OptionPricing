@@ -1,8 +1,6 @@
 # Derivatives Risk Management Framework
 
-A **comprehensive quantitative finance platform** for derivatives pricing, risk management, and model validation, combining **pure mathematics**, **applied mathematics**, and **financial modeling** into a unified theoretical framework.
-
-## NEW: Multi-Agent Option Pricing Framework
+# Multi-Agent Option Pricing Framework
 
 **Revolutionary approach to understanding option pricing deviations through market microstructure:**
 
