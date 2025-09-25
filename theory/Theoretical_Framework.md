@@ -252,5 +252,3 @@ This three-layer framework demonstrates how:
 3. **Financial Models** implement specific solutions for derivatives and risk management
 
 Each layer is essential - without solid pure mathematics, applied methods lack rigor; without applied mathematics, financial models lack sophistication; without financial models, risk management lacks precision.
-
-The beauty of this framework is that improvements at any layer cascade through the entire system, enabling continuous advancement in quantitative finance methodology.
