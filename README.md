@@ -1,296 +1,314 @@
-# Derivatives Risk Management Framework
+# Three-Layer Measure Theory for Derivatives Arbitrage
 
-A **comprehensive quantitative finance platform** for derivatives pricing, risk management, and model validation, combining **pure mathematics**, **applied mathematics**, and **financial modeling** into a unified theoretical framework.
+**An exploration of derivatives arbitrage using measure-theoretic foundations and multi-agent market dynamics**
 
-## NEW: Multi-Agent Option Pricing Framework
+This framework attempts to bridge academic measure theory with practical quantitative trading by investigating systematic arbitrage opportunities through P/Q/Q* measure divergences.
 
-**Revolutionary approach to understanding option pricing deviations through market microstructure:**
-
-- **Multi-Agent Market Simulation**: Market makers, arbitrageurs, and noise traders create realistic pricing deviations
-- **Natural Volatility Smile Generation**: Explains smile/skew through agent behaviors, not ad-hoc parameters
-- **Quantitative Risk Applications**: Enhanced VaR models, hedge effectiveness analysis, stress testing
-- **Academic & Practical Value**: Bridge between behavioral finance and quantitative modeling
-
-**Key Results from Multi-Agent Analysis:**
-- Mean pricing deviation: **3.39%** from Black-Scholes
-- VaR adjustment factor: **1.07x** for traditional models
-- Hedge effectiveness: **93.2%** (accounting for microstructure)
-- Natural volatility skew: **-0.45%** for short-term options
-
-## Overview
-- **Mathematical foundation**: Probability theory, stochastic processes, PDEs, optimization
-- **Pricing models**: Black-Scholes, Heston stochastic volatility, Binomial trees, **Multi-Agent Framework**
-- **Risk management**: VaR, CVaR, portfolio risk metrics, coherent risk measures, **Microstructure Risk Analysis**
-- **Data infrastructure**: Market data providers, preprocessing, synthetic generation
-- **Model validation**: Backtesting, statistical tests, performance analysis, **Agent-Based Stress Testing**
-
-## Theoretical Framework
-
-The system follows a **three-layer mathematical progression**:
+## Core Framework: Three-Layer Measure Theory
 
 ```
-Pure Mathematics → Applied Mathematics → Financial Models
-      ↓                    ↓                    ↓
-- Probability Theory   - Stochastic Processes  - Black-Scholes
-- Linear Algebra       - PDEs & Monte Carlo    - Heston Model
-- Real Analysis        - Numerical Methods     - VaR/CVaR
-- Optimization         - Parameter Estimation  - Risk Attribution
+         P-Measure (Real World)
+              ↓ Girsanov Transform
+         Q-Measure (Risk-Neutral)
+              ↓ Multi-Agent Effects
+         Q*-Measure (Effective Market)
 ```
+
+### Central Hypothesis
+Traditional finance assumes markets operate under Q (risk-neutral measure), but we propose that reality operates under Q* (effective market measure) due to multi-agent frictions. The hypothesis is that the divergence Q* ≠ Q may create systematic arbitrage opportunities that warrant investigation.
+
+## Preliminary Empirical Results
+
+### Simulation Results
+- 504 potential arbitrage opportunities identified in demo
+- Simulated Sharpe ratio of 3.78 (requires further validation)
+- 100% success rate in backtesting simulation (limited sample)
+- $6.36 total simulated P&L on unit positions
+
+### Risk Assessment Metrics
+- Estimated tail risk adjustment factor: 1.21x
+- Average liquidity score in simulation: 0.61
+- Simulated maximum drawdown: $0.399
+- Estimated convergence time: approximately 2 days
+
+## The Three Measures: Theoretical Framework
+
+### 1. P-Measure (Physical/Real World)
+```python
+# Empirical market dynamics with risk premiums
+P_measure = RealWorldMeasure(
+    drift=0.12,        # Estimated equity risk premium
+    volatility=0.25,   # Observed market volatility
+    skew=-0.3,         # Empirical negative skew
+    kurtosis=4.5       # Observed fat tails
+)
+```
+
+### 2. Q-Measure (Risk-Neutral)
+```python
+# Theoretical no-arbitrage benchmark
+Q_measure = RiskNeutralMeasure(
+    drift=0.05,        # Risk-free rate
+    volatility=0.25,   # Assumed constant volatility
+    skew=0.0,          # No skew assumption
+    kurtosis=3.0       # Normal distribution assumption
+)
+```
+
+### 3. Q*-Measure (Effective Market)
+```python
+# Proposed multi-agent influenced measure
+Q_star_measure = EffectiveMarketMeasure(
+    drift=0.05,           # Maintains no-arbitrage long-term
+    volatility=0.287,     # Adjusted for market frictions
+    skew=-0.15,           # Partial skew from hedging demand
+    kurtosis=3.8,         # Moderate fat tail adjustment
+    agent_effects=True    # Multi-agent dynamics included
+)
+```
+
+## Multi-Agent Market Dynamics
+
+### Agent Types and Their Effects
+- **Market Makers**: Generate bid-ask spreads and inventory risk premiums
+- **Arbitrageurs**: Attempt to correct deviations but face capital and speed constraints
+- **Noise Traders**: May create temporary price distortions
+- **Institutional Hedgers**: Contribute to volatility smile through hedging demand
+
+### Proposed Market Regimes
+1. **Stable** (Q* ≈ Q): Normal arbitrage capacity maintains convergence
+2. **Unstable** (Q* >> Q): Persistent deviations due to agent constraints
+3. **Stressed** (Q* >>> Q): Limited arbitrage capacity, extreme deviations
+4. **Illiquid** (High spreads): Reduced trading activity and wider spreads
+
+## Proposed Arbitrage Strategy Logic
+
+### Theoretical Framework
+```python
+# 1. Detect when Q* significantly deviates from Q
+if abs(Q_star_price - Q_price) > threshold:
+
+    # 2. Calculate expected profit and confidence
+    expected_profit = Q_star_price - Q_price
+    confidence = statistical_significance(deviation)
+
+    # 3. Risk-adjusted position sizing
+    position_size = confidence * liquidity_score * risk_tolerance
+
+    # 4. Execute trade with Greek hedging
+    execute_arbitrage_trade(expected_profit, position_size)
+
+    # 5. Monitor convergence Q* → Q
+    monitor_convergence_and_exit()
+```
+
+### Economic Rationale
+- **Short-term hypothesis**: Potential profit from Q* ≠ Q deviations
+- **Long-term assumption**: Q* should converge to Q (no-arbitrage condition)
+- **Risk management**: Position sizing based on estimated convergence probability
+- **Systematic approach**: Detection across multiple strikes and expiries
+
+## Quick Start Demonstration
+
+### Running the Simulation
+```bash
+python three_layer_demo.py
+```
+
+### Sample Output
+```
+STARTING THREE-LAYER MEASURE THEORY DEMO
+Found 504 potential arbitrage opportunities
+Backtest Results:
+   • Total P&L: $6.356
+   • Win Rate: 100.0%
+   • Sharpe Ratio: 3.78
+THREE-LAYER MEASURE DEMO COMPLETED
+```
+
+## System Architecture
+
+```
+┌─────────────────────────────────────────────┐
+│    Three-Layer Measure Framework            │
+│  ┌─────────┐ ┌─────────┐ ┌─────────────┐   │
+│  │P-Measure│ │Q-Measure│ │Q*-Measure   │   │
+│  └─────────┘ └─────────┘ └─────────────┘   │
+├─────────────────────────────────────────────┤
+│         Multi-Agent Market Engine           │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐    │
+│  │Market    │ │Arbitrage │ │Noise     │    │
+│  │Makers    │ │Agents    │ │Traders   │    │
+│  └──────────┘ └──────────┘ └──────────┘    │
+├─────────────────────────────────────────────┤
+│      Arbitrage Detection & Execution        │
+├─────────────────────────────────────────────┤
+│         Risk Management & Analytics         │
+└─────────────────────────────────────────────┘
+```
+
+## Core Files and Usage
+
+### Key Components
+- **`three_layer_demo.py`** - Main demonstration script
+- **`models/three_layer_measures.py`** - Core measure theory implementation
+- **`models/multi_agent/`** - Multi-agent market simulation modules
+- **`models/pricing_deviation/`** - Quantitative analysis tools
+
+### Advanced Usage
+```python
+from models.three_layer_measures import ThreeLayerMeasureFramework
+
+# Initialize framework
+framework = ThreeLayerMeasureFramework(config={})
+
+# Calibrate all three measures
+framework.calibrate_all_measures(
+    historical_data=market_data,
+    current_market_equilibrium=equilibrium,
+    risk_free_rate=0.045
+)
+
+# Detect arbitrage opportunities
+opportunities = framework.detect_arbitrage_opportunities(
+    option_strikes=[90, 95, 100, 105, 110],
+    option_expiries=[0.25, 0.5, 1.0],
+    underlying_price=100.0,
+    confidence_threshold=0.7
+)
+
+# Generate comprehensive report
+report = framework.generate_empirical_validation_report()
+```
+
+## 📈 Real-World Application
+
+### Production Trading Implementation
+1. **Real-time data integration** - Live option chains and market data
+2. **Sub-second execution** - High-frequency arbitrage capture
+3. **Automated Greek hedging** - Delta/gamma/vega risk management
+4. **Capital allocation** - Risk-adjusted position sizing across opportunities
+
+### Risk Management
+- **VaR adjustments**: 1.2x multiplier for tail risk
+- **Position limits**: Based on liquidity scores and convergence times
+- **Stop-losses**: 2x expected convergence time
+- **Regime monitoring**: Systemic risk indicators
+
+## Theoretical Foundation
+
+### Mathematical Framework
+- **Measure Theory**: Radon-Nikodym derivatives for measure changes
+- **Martingale Theory**: Risk-neutral pricing foundations
+- **Game Theory**: Multi-agent Nash equilibrium computation
+- **Stochastic Calculus**: SDE modeling of price processes
+
+### Key Theoretical Propositions
+1. **Q-measure provides the no-arbitrage anchor** (long-term convergence target)
+2. **Q*-measure captures short-term market realities** (multi-agent effects)
+3. **P-measure enables stress testing** (real-world scenarios)
+4. **Systematic deviations may create profit opportunities** (with proper risk control)
+
+## Future Research Directions
+
+### Immediate Research Areas
+- [ ] Real-time market data integration for validation
+- [ ] Enhanced execution simulation
+- [ ] Machine learning for regime classification
+- [ ] Interactive visualization tools
+
+### Advanced Research Topics
+- [ ] Multi-asset class extension (FX, commodities, crypto)
+- [ ] Quantum computing Monte Carlo methods
+- [ ] ESG risk factor integration
+- [ ] Alternative settlement mechanisms
+
+## Potential Research Contributions
+
+### Compared to Traditional Approaches
+- Attempts systematic detection rather than manual opportunity identification
+- Proposes risk-theoretic foundation rather than purely heuristic approaches
+- Incorporates multi-agent modeling rather than single-agent assumptions
+
+### Compared to Academic Models
+- Provides implementation alongside theoretical framework
+- Includes preliminary empirical testing of concepts
+- Considers risk-adjusted performance metrics in simulation
+
+## Simulation Performance Metrics
+
+### Strategy Simulation Results
+- Simulated Sharpe Ratio: 3.78 (requires validation with real data)
+- Win Rate in simulation: 100% (limited sample, may not generalize)
+- Simulated Maximum Drawdown: <7% of expected profit
+- Opportunities identified: 504 in demo scenario
+
+### Computational Performance
+- Measure calibration: approximately 2 seconds
+- Opportunity detection: approximately 1 second for 50 combinations
+- Monte Carlo simulation: 10K paths in approximately 500ms per measure
 
 ## Project Structure
+
 ```
-Derivatives-Risk-Management/
-├── theory/                    # Mathematical foundations & theoretical framework
-│   ├── Theoretical_Framework.md    # Pure → Applied → Financial progression
-│   └── Detailed_Methods.md         # Implementation details & formulas
-├── models/                    # Pricing models & derivatives
-│   ├── base_model.py             # Abstract base class
-│   ├── black_scholes.py          # Black-Scholes implementation
-│   ├── heston.py                 # Stochastic volatility model
-│   ├── binomial_tree.py          # American option pricing
-│   ├── implied_volatility.py     # Implied volatility calculations
-│   ├── option_portfolio.py       # Portfolio option management
-│   ├── multi_agent/              # Multi-Agent Pricing Framework
-│   │   ├── base_agent.py           # Agent base classes and market state
-│   │   ├── market_maker.py         # Market maker agents with inventory risk
-│   │   ├── arbitrageur.py          # Arbitrageur agents with capital constraints
-│   │   ├── noise_trader.py         # Behavioral noise trader agents
-│   │   └── agent_interaction.py    # Market equilibrium computation engine
-│   └── pricing_deviation/       # Pricing Deviation Analysis
-│       ├── deviation_engine.py     # Core deviation computation
-│       ├── smile_generator.py      # Volatility smile generation
-│       ├── risk_model_calibrator.py # Risk model calibration
-│       └── quantitative_analyzer.py # Advanced quantitative analytics
-├── risk/                      # Risk management & portfolio analysis
-│   ├── var_models.py             # Value-at-Risk implementations
-│   ├── cvar_models.py            # Conditional VaR & coherent measures
-│   ├── portfolio_risk.py         # Portfolio-level risk metrics
-│   ├── risk_measures.py          # General risk measure framework
-│   ├── option_risk.py            # Options-specific risk metrics
-│   └── integrated_risk.py        # Integrated risk management
-├── data/                      # Data infrastructure & preprocessing
-│   ├── market_data.py            # Market data providers
-│   ├── data_preprocessing.py     # Cleaning & transformation
-│   ├── sample_generators.py      # Synthetic data generation
-│   └── sample_data/              # Sample data directory
-├── evaluation_modules/        # Model validation & testing
-│   ├── model_validation.py       # Backtesting & validation framework
-│   ├── performance_metrics.py    # Performance & risk-adjusted metrics
-│   └── statistical_tests.py      # Statistical testing suite
-├── notebooks/                 # Jupyter notebooks for analysis
-├── multi_agent_analysis.py    # Multi-Agent analysis (MAIN DEMO)
-├── test_framework.py          # Comprehensive test suite
-└── config.yaml               # Configuration parameters (includes multi-agent settings)
+Derivatives_Risk_Management/
+├── three_layer_demo.py              # Main demonstration script
+├── models/
+│   ├── three_layer_measures.py      # Core P/Q/Q* framework
+│   ├── multi_agent/                 # Multi-agent market simulation
+│   │   ├── agent_interaction.py     # Market equilibrium engine
+│   │   ├── market_maker.py          # Market maker agents
+│   │   ├── arbitrageur.py           # Arbitrage agents
+│   │   └── noise_trader.py          # Behavioral traders
+│   ├── pricing_deviation/           # Quantitative analysis
+│   └── [traditional models...]      # Black-Scholes, Heston, etc.
+├── risk/                            # Risk management modules
+├── data/                            # Data processing utilities
+├── evaluation_modules/              # Model validation tools
+└── README.md                        # This file
 ```
 
-## Quick Start
+## Installation and Setup
 
-### Multi-Agent Option Pricing Demo (Recommended)
+### Dependencies
 ```bash
-git clone <repository-url>
-cd Derivatives-Risk-Management
-
-# Install dependencies
-pip install numpy scipy pandas matplotlib scikit-learn statsmodels yfinance
-
-# Run the multi-agent pricing analysis (NEW!)
-python multi_agent_analysis.py
+pip install numpy scipy pandas matplotlib
 ```
 
-**This will generate:**
-- `multi_agent_analysis_report.md` - Comprehensive quantitative analysis
-- `multi_agent_analysis_data.csv` - Detailed pricing data
-- `multi_agent_analysis_results.json` - Full results for further analysis
-
-### Expected Output
-```
-MULTI-AGENT OPTION PRICING DEVIATION ANALYSIS
-==================================================
-Mean Pricing Deviation: 3.39%
-Maximum Deviation: 57.11%
-VaR Adjustment Factor: 1.07x
-Hedge Effectiveness: 93.2%
-
-VOLATILITY SMILE ANALYSIS:
-==================================================
-Expiry 0.08Y: ATM IV=20.1%, Skew=-0.45%
-Expiry 0.25Y: ATM IV=20.0%, Skew=-0.01%
-```
-
-### Testing Framework Components
+### Quick Start
 ```bash
-# Test individual framework components
-python test_framework.py
+# Clone repository
+git clone [repository-url]
+cd Derivatives_Risk_Management
 
-# Or test specific models directly:
-python -c "
-from models.black_scholes import BlackScholesModel, BSParameters
-params = BSParameters(S0=100, K=105, T=0.25, r=0.05, sigma=0.2)
-model = BlackScholesModel(params)
-print(f'BS Call Price: {model.call_price():.2f}')
-print('Multi-agent analysis shows 3.39% average deviation from this theoretical price')
-"
+# Run the demonstration
+python three_layer_demo.py
+
+# View generated visualization
+open three_layer_measure_demo.png
 ```
 
-## Key Features
+## Academic References
 
-### **Mathematical Rigor**
-- **Pure Mathematics**: Measure theory, functional analysis, optimization theory
-- **Applied Mathematics**: Stochastic calculus, numerical PDEs, Monte Carlo methods
-- **Financial Mathematics**: Risk-neutral pricing, martingale theory, volatility modeling
+### Measure Theory & Finance
+1. Shreve, S. "Stochastic Calculus for Finance II" - Continuous-Time Models
+2. Björk, T. "Arbitrage Theory in Continuous Time"
+3. Delbaen, F. & Schachermayer, W. "The Mathematics of Arbitrage"
 
-### **Pricing Models**
-- **Black-Scholes**: European options with full Greeks calculation
-- **Heston Model**: Stochastic volatility with characteristic function methods
-- **Binomial Trees**: American option pricing with early exercise
-- **Implied Volatility**: Advanced volatility surface calculations
-- **Option Portfolio**: Multi-instrument portfolio management
-- **Multi-Agent Framework**: Realistic pricing deviations through market microstructure
-  - **Market Makers**: Inventory risk-driven spread and skew generation
-  - **Arbitrageurs**: Capital-constrained deviation corrections
-  - **Noise Traders**: Behavioral bias-driven demand/supply imbalances
-  - **Natural Smile Generation**: Volatility smile without ad-hoc parameters
-- **Extensible Framework**: Abstract base classes for custom models
+### Multi-Agent Systems
+1. Cont, R. & Bouchaud, J.P. "Herd Behavior and Aggregate Fluctuations in Financial Markets"
+2. Farmer, J.D. & Foley, D. "The Economy Needs Agent-Based Modeling"
+3. LeBaron, B. "Agent-Based Computational Finance"
 
-### **Risk Management**
-- **Value-at-Risk**: Historical, parametric, and Monte Carlo methods
-- **Conditional VaR**: Expected shortfall and coherent risk measures
-- **Portfolio Risk**: Risk attribution, diversification benefits, stress testing
-- **Option Risk**: Greeks-based risk analysis and sensitivity testing
-- **Integrated Risk**: Unified risk management across asset classes
-- **Multi-Agent Risk Analysis**: Microstructure-aware risk modeling
-  - **Fat Tail Quantification**: Realistic tail risk beyond lognormal assumptions
-  - **Model Risk Assessment**: VaR/CVaR adjustment factors from agent simulations
-  - **Hedge Effectiveness Analysis**: Degradation due to transaction costs and discrete rebalancing
-  - **Regime Identification**: Market stability through agent behavior patterns
-  - **Agent-Based Stress Testing**: Scenarios based on agent capacity constraints
-- **Backtesting**: Kupiec, Christoffersen tests for model validation
-
-### **Performance Analysis**
-- **Risk-adjusted Metrics**: Sharpe, Sortino, Calmar ratios
-- **Benchmark Comparison**: Alpha, beta, tracking error, information ratio
-- **Statistical Testing**: Normality, independence, homoscedasticity tests
-- **Model Validation**: Cross-validation, out-of-sample testing
-
-### **Data Infrastructure**
-- **Market Data**: Yahoo Finance integration, mock providers for testing
-- **Preprocessing**: Data quality validation, missing value handling
-- **Synthetic Generation**: Realistic market scenarios for backtesting
-
-## Use Cases
-
-### Multi-Agent Framework Applications
-- **Quantitative Analysts** → Understand and model realistic option pricing deviations
-- **Risk Managers** → Enhanced VaR models with microstructure adjustments (1.07x multiplier)
-- **Traders** → Identify systematic mispricings from agent imbalances
-- **Model Validators** → Stress test using agent-based scenarios instead of historical data
-- **Regulators** → Monitor systemic risk through agent capacity analysis
-
-### Framework Components (Educational/Research)
-- **Quantitative Analysts** → Understanding traditional model limitations
-- **Risk Managers** → Baseline models before multi-agent adjustments
-- **Researchers** → Academic research foundation and comparison baselines
-- **Students** → Learning traditional quantitative finance theory
-
-## Mathematical Dependencies
-
-### Traditional Framework
-- **Probability Theory**: Measure theory, random variables, distributions
-- **Stochastic Processes**: Brownian motion, Itô calculus, martingales
-- **Partial Differential Equations**: Black-Scholes PDE, boundary conditions
-- **Numerical Methods**: Finite differences, Monte Carlo, optimization
-- **Statistics**: Hypothesis testing, parameter estimation, model selection
-
-### Multi-Agent Framework (Additional)
-- **Game Theory**: Nash equilibria, agent interactions, market mechanisms
-- **Behavioral Finance**: Cognitive biases, herding, overconfidence effects
-- **Market Microstructure**: Bid-ask spreads, inventory models, price impact
-- **Agent-Based Modeling**: Multi-agent systems, emergence, complex systems
-
-## Multi-Agent Framework Academic Impact
-
-**Published Research Applications:**
-- **Volatility Smile Explanation**: Natural generation without Lévy jumps or stochastic volatility
-- **Model Risk Quantification**: Systematic approach to fat tail assessment
-- **Behavioral Finance Integration**: Bridge between psychology and quantitative models
-
-**Quantitative Results for Academic Use:**
-- Mean pricing deviation: **3.39%** from theoretical (replicates market observations)
-- Volatility skew: **-0.45%** for short-term options (consistent with equity markets)
-- Tail risk underestimation: **1.57x** factor (explains VaR breaches)
-- Transaction cost impact: **0.13%** effective rate (validates microstructure theories)
-
-## Industry Implementation Guide
-
-### Immediate Applications (Week 1-2)
-1. **Run Multi-Agent Analysis**: `python multi_agent_analysis.py`
-2. **Apply VaR Multiplier**: Use **1.07x** adjustment for existing models
-3. **Update Hedge Ratios**: Account for **93.2%** effectiveness factor
-4. **Incorporate Liquidity Premium**: Add **0.13%** to option pricing
-
-### Strategic Implementation (Month 1-3)
-1. **Model Validation Enhancement**: Use agent-based stress scenarios
-2. **Risk Limit Recalibration**: Adjust for **1.57x** tail risk factor
-3. **Trading Strategy Optimization**: Exploit systematic deviations identified
-4. **Regulatory Reporting**: Enhanced model risk documentation
-
-### Advanced Applications (Month 3-6)
-1. **Custom Agent Development**: Calibrate to specific market conditions
-2. **Real-Time Monitoring**: Implement regime detection algorithms
-3. **Cross-Asset Extension**: Apply framework to rates, FX, commodities
-4. **Machine Learning Integration**: Neural network agent strategy learning
-
-## Additional Tools
-
-```bash
-pip install jupyter notebook  # For interactive analysis in notebooks/
-pip install scipy             # Required for multi-agent analysis
-```
-
-## Multi-Agent Configuration
-
-The framework includes comprehensive configuration in `config.yaml`:
-
-```yaml
-multi_agent:
-  market_makers:
-    count: 3                              # Number of market makers
-    risk_aversion: [0.005, 0.01, 0.02]   # Risk aversion levels
-    base_spread: 0.015                    # Base bid-ask spread
-
-  arbitrageurs:
-    count: 2                              # Number of arbitrageurs
-    deviation_threshold: 0.008            # Minimum profitable deviation
-    transaction_costs: 0.0015             # Transaction cost rate
-
-  noise_traders:
-    count: 15                             # Number of noise traders
-    behavior_types: ['momentum', 'mean_reversion', 'overconfident']
-```
-
-## Contributing
-
-This framework follows rigorous mathematical principles. When contributing:
-1. Ensure mathematical correctness and theoretical soundness
-2. Include comprehensive documentation with mathematical derivations
-3. Implement proper unit tests for numerical accuracy
-4. Follow the Pure Math → Applied Math → Financial Models progression
-5. **For Multi-Agent Components**: Validate agent behaviors against empirical studies
-
-## Citation
-
-If you use this framework in academic research, please cite:
-
-```bibtex
-@misc{derivatives_risk_management_2024,
-  title={Derivatives Risk Management Framework with Multi-Agent Option Pricing},
-  author={Quantitative Finance Research Group},
-  year={2024},
-  howpublished={\url{https://github.com/your-repo/Derivatives_Risk_Management}},
-  note={Multi-agent framework for explaining option pricing deviations}
-}
-```
+### Market Microstructure
+1. O'Hara, M. "Market Microstructure Theory"
+2. Hasbrouck, J. "Empirical Market Microstructure"
+3. Foucault, T., Pagano, M. & Röell, A. "Market Liquidity"
 
 ---
 
-*Bridging pure mathematics, market microstructure, and practical finance through rigorous quantitative modeling and multi-agent simulation.*
+## Summary
+
+This research framework explores the application of measure theory to derivatives arbitrage through multi-agent market modeling. By investigating why Q* may deviate from Q and how these deviations might be systematically identified, we attempt to create a theoretically grounded approach to arbitrage detection while acknowledging the limitations and risks inherent in such strategies.
+
+The framework should be considered experimental and requires extensive validation before any practical application. Run `python three_layer_demo.py` to explore the theoretical concepts and preliminary simulations.
