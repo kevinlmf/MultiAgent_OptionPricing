@@ -17,21 +17,84 @@ This framework attempts to bridge academic measure theory with practical quantit
 ### Central Hypothesis
 Traditional finance assumes markets operate under Q (risk-neutral measure), but we propose that reality operates under Q* (effective market measure) due to multi-agent frictions. The hypothesis is that the divergence Q* ≠ Q may create systematic arbitrage opportunities that warrant investigation.
 
-## Preliminary Empirical Results
 
-### Simulation Results
-- 504 potential arbitrage opportunities identified in demo
-- Simulated Sharpe ratio of 3.78 (requires further validation)
-- 100% success rate in backtesting simulation (limited sample)
-- $6.36 total simulated P&L on unit positions
+## Project Structure
 
-### Risk Assessment Metrics
-- Estimated tail risk adjustment factor: 1.21x
-- Average liquidity score in simulation: 0.61
-- Simulated maximum drawdown: $0.399
-- Estimated convergence time: approximately 2 days
+```
+Derivatives_Risk_Management/
+├── three_layer_demo.py              # Main demonstration script
+├── models/
+│   ├── three_layer_measures.py      # Core P/Q/Q* framework
+│   ├── multi_agent/                 # Multi-agent market simulation
+│   │   ├── agent_interaction.py     # Market equilibrium engine
+│   │   ├── market_maker.py          # Market maker agents
+│   │   ├── arbitrageur.py           # Arbitrage agents
+│   │   └── noise_trader.py          # Behavioral traders
+│   ├── pricing_deviation/           # Quantitative analysis
+│   └── [traditional models...]      # Black-Scholes, Heston, etc.
+├── risk/                            # Risk management modules
+├── data/                            # Data processing utilities
+├── evaluation_modules/              # Model validation tools
+└── README.md                        # This file
+```
+
+## Installation and Setup
+
+### Dependencies
+```bash
+pip install numpy scipy pandas matplotlib
+```
+
+### Quick Start
+```bash
+# Clone repository
+git clone https://github.com/kevinlmf/MultiAgent_OptionPricing
+cd MultiAgent_OptionPricing
+
+# Run the demonstration
+python three_layer_demo.py
+
+# View generated visualization
+open three_layer_measure_demo.png
+```
+
+## System Architecture
+
+```
+┌─────────────────────────────────────────────┐
+│    Three-Layer Measure Framework            │
+│  ┌─────────┐ ┌─────────┐ ┌─────────────┐   │
+│  │P-Measure│ │Q-Measure│ │Q*-Measure   │   │
+│  └─────────┘ └─────────┘ └─────────────┘   │
+├─────────────────────────────────────────────┤
+│         Multi-Agent Market Engine           │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐    │
+│  │Market    │ │Arbitrage │ │Noise     │    │
+│  │Makers    │ │Agents    │ │Traders   │    │
+│  └──────────┘ └──────────┘ └──────────┘    │
+├─────────────────────────────────────────────┤
+│      Arbitrage Detection & Execution        │
+├─────────────────────────────────────────────┤
+│         Risk Management & Analytics         │
+└─────────────────────────────────────────────┘
+```
 
 ## The Three Measures: Theoretical Framework
+
+## Theoretical Foundation
+
+### Mathematical Framework
+- **Measure Theory**: Radon-Nikodym derivatives for measure changes
+- **Martingale Theory**: Risk-neutral pricing foundations
+- **Game Theory**: Multi-agent Nash equilibrium computation
+- **Stochastic Calculus**: SDE modeling of price processes
+
+### Key Theoretical Propositions
+1. **Q-measure provides the no-arbitrage anchor** (long-term convergence target)
+2. **Q*-measure captures short-term market realities** (multi-agent effects)
+3. **P-measure enables stress testing** (real-world scenarios)
+4. **Systematic deviations may create profit opportunities** (with proper risk control)
+
 
 ### 1. P-Measure (Physical/Real World)
 ```python
@@ -108,44 +171,9 @@ if abs(Q_star_price - Q_price) > threshold:
 - **Risk management**: Position sizing based on estimated convergence probability
 - **Systematic approach**: Detection across multiple strikes and expiries
 
-## Quick Start Demonstration
 
-### Running the Simulation
-```bash
-python three_layer_demo.py
-```
 
-### Sample Output
-```
-STARTING THREE-LAYER MEASURE THEORY DEMO
-Found 504 potential arbitrage opportunities
-Backtest Results:
-   • Total P&L: $6.356
-   • Win Rate: 100.0%
-   • Sharpe Ratio: 3.78
-THREE-LAYER MEASURE DEMO COMPLETED
-```
 
-## System Architecture
-
-```
-┌─────────────────────────────────────────────┐
-│    Three-Layer Measure Framework            │
-│  ┌─────────┐ ┌─────────┐ ┌─────────────┐   │
-│  │P-Measure│ │Q-Measure│ │Q*-Measure   │   │
-│  └─────────┘ └─────────┘ └─────────────┘   │
-├─────────────────────────────────────────────┤
-│         Multi-Agent Market Engine           │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐    │
-│  │Market    │ │Arbitrage │ │Noise     │    │
-│  │Makers    │ │Agents    │ │Traders   │    │
-│  └──────────┘ └──────────┘ └──────────┘    │
-├─────────────────────────────────────────────┤
-│      Arbitrage Detection & Execution        │
-├─────────────────────────────────────────────┤
-│         Risk Management & Analytics         │
-└─────────────────────────────────────────────┘
-```
 
 ## Core Files and Usage
 
@@ -181,7 +209,22 @@ opportunities = framework.detect_arbitrage_opportunities(
 report = framework.generate_empirical_validation_report()
 ```
 
-## 📈 Real-World Application
+## Preliminary Empirical Results
+
+### Simulation Results
+- 504 potential arbitrage opportunities identified in demo
+- Simulated Sharpe ratio of 3.78 (requires further validation)
+- 100% success rate in backtesting simulation (limited sample)
+- $6.36 total simulated P&L on unit positions
+
+### Risk Assessment Metrics
+- Estimated tail risk adjustment factor: 1.21x
+- Average liquidity score in simulation: 0.61
+- Simulated maximum drawdown: $0.399
+- Estimated convergence time: approximately 2 days
+
+
+## Real-World Application
 
 ### Production Trading Implementation
 1. **Real-time data integration** - Live option chains and market data
@@ -195,98 +238,6 @@ report = framework.generate_empirical_validation_report()
 - **Stop-losses**: 2x expected convergence time
 - **Regime monitoring**: Systemic risk indicators
 
-## Theoretical Foundation
-
-### Mathematical Framework
-- **Measure Theory**: Radon-Nikodym derivatives for measure changes
-- **Martingale Theory**: Risk-neutral pricing foundations
-- **Game Theory**: Multi-agent Nash equilibrium computation
-- **Stochastic Calculus**: SDE modeling of price processes
-
-### Key Theoretical Propositions
-1. **Q-measure provides the no-arbitrage anchor** (long-term convergence target)
-2. **Q*-measure captures short-term market realities** (multi-agent effects)
-3. **P-measure enables stress testing** (real-world scenarios)
-4. **Systematic deviations may create profit opportunities** (with proper risk control)
-
-## Future Research Directions
-
-### Immediate Research Areas
-- [ ] Real-time market data integration for validation
-- [ ] Enhanced execution simulation
-- [ ] Machine learning for regime classification
-- [ ] Interactive visualization tools
-
-### Advanced Research Topics
-- [ ] Multi-asset class extension (FX, commodities, crypto)
-- [ ] Quantum computing Monte Carlo methods
-- [ ] ESG risk factor integration
-- [ ] Alternative settlement mechanisms
-
-## Potential Research Contributions
-
-### Compared to Traditional Approaches
-- Attempts systematic detection rather than manual opportunity identification
-- Proposes risk-theoretic foundation rather than purely heuristic approaches
-- Incorporates multi-agent modeling rather than single-agent assumptions
-
-### Compared to Academic Models
-- Provides implementation alongside theoretical framework
-- Includes preliminary empirical testing of concepts
-- Considers risk-adjusted performance metrics in simulation
-
-## Simulation Performance Metrics
-
-### Strategy Simulation Results
-- Simulated Sharpe Ratio: 3.78 (requires validation with real data)
-- Win Rate in simulation: 100% (limited sample, may not generalize)
-- Simulated Maximum Drawdown: <7% of expected profit
-- Opportunities identified: 504 in demo scenario
-
-### Computational Performance
-- Measure calibration: approximately 2 seconds
-- Opportunity detection: approximately 1 second for 50 combinations
-- Monte Carlo simulation: 10K paths in approximately 500ms per measure
-
-## Project Structure
-
-```
-Derivatives_Risk_Management/
-├── three_layer_demo.py              # Main demonstration script
-├── models/
-│   ├── three_layer_measures.py      # Core P/Q/Q* framework
-│   ├── multi_agent/                 # Multi-agent market simulation
-│   │   ├── agent_interaction.py     # Market equilibrium engine
-│   │   ├── market_maker.py          # Market maker agents
-│   │   ├── arbitrageur.py           # Arbitrage agents
-│   │   └── noise_trader.py          # Behavioral traders
-│   ├── pricing_deviation/           # Quantitative analysis
-│   └── [traditional models...]      # Black-Scholes, Heston, etc.
-├── risk/                            # Risk management modules
-├── data/                            # Data processing utilities
-├── evaluation_modules/              # Model validation tools
-└── README.md                        # This file
-```
-
-## Installation and Setup
-
-### Dependencies
-```bash
-pip install numpy scipy pandas matplotlib
-```
-
-### Quick Start
-```bash
-# Clone repository
-git clone [repository-url]
-cd Derivatives_Risk_Management
-
-# Run the demonstration
-python three_layer_demo.py
-
-# View generated visualization
-open three_layer_measure_demo.png
-```
 
 ## Academic References
 
