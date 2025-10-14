@@ -18,7 +18,7 @@ from typing import Dict, List, Optional, Tuple, Union, Any
 from scipy import stats
 import warnings
 
-from ..multi_agent.agent_interaction import MarketEquilibrium, MarketRegime
+from ..multi_agent.agents.agent_interaction import MarketEquilibrium, MarketRegime
 
 
 @dataclass

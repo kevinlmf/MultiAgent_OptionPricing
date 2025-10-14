@@ -21,9 +21,9 @@ from abc import ABC, abstractmethod
 from enum import Enum
 import warnings
 
-from .multi_agent.agent_interaction import MarketEquilibrium, MarketRegime
-from .multi_agent.base_agent import MarketState
-from .pricing_deviation.quantitative_analyzer import RiskMetrics, QuantitativeAnalyzer
+from ..agents.agent_interaction import MarketEquilibrium, MarketRegime
+from ..agents.base_agent import MarketState
+from ...pricing_deviation.quantitative_analyzer import QuantitativeAnalyzer
 
 
 class MeasureType(Enum):
