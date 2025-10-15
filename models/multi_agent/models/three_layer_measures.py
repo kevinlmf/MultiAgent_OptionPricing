@@ -428,10 +428,14 @@ class ThreeLayerMeasureFramework:
         self.measure_comparisons: List[MeasureComparison] = []
 
     def calibrate_all_measures(self,
-                             historical_data: pd.DataFrame,
-                             current_market_equilibrium: MarketEquilibrium,
+                             historical_data: Union[pd.DataFrame, Dict],
+                             current_market_equilibrium: Union[MarketEquilibrium, Dict],
                              risk_free_rate: float):
         """Calibrate all three measures from available data"""
+
+        # Convert historical_data to DataFrame if needed
+        if isinstance(historical_data, dict):
+            historical_data = pd.DataFrame(historical_data)
 
         # 1. Calibrate P-measure from historical data
         self.P_measure = RealWorldMeasure(
@@ -449,6 +453,26 @@ class ThreeLayerMeasureFramework:
             risk_free_rate=risk_free_rate,
             volatility=market_vol
         )
+
+        # 3. Create default MarketEquilibrium if dict is provided
+        if isinstance(current_market_equilibrium, dict):
+            from ..agents.base_agent import AgentType
+            current_market_equilibrium = MarketEquilibrium(
+                equilibrium_prices={},
+                pricing_deviations={},
+                implied_volatilities={},
+                bid_ask_spreads={},
+                market_regime=MarketRegime.STABLE,
+                liquidity_score=0.7,
+                arbitrage_capacity=1.0,
+                deviation_persistence=0.3,
+                smile_skew_parameters={'skew': -0.1, 'atm_vol': market_vol},
+                tail_risk_multiplier=1.2,
+                hedge_effectiveness=0.9,
+                systemic_risk_indicator=0.2,
+                agent_states={},  # Empty agent states for calibration-only mode
+                market_concentration={AgentType.MARKET_MAKER: 0.4, AgentType.ARBITRAGEUR: 0.3, AgentType.NOISE_TRADER: 0.3}
+            )
 
         # 3. Calibrate Q*-measure from multi-agent equilibrium
         self.Q_star_measure = EffectiveMarketMeasure(

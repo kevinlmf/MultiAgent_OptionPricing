@@ -133,9 +133,10 @@ class ModelCalibrator:
               initial_params['rho']]
 
         if method == 'differential_evolution':
-            result = differential_evolution(objective, bounds, seed=42, maxiter=100)
+            # Reduced iterations for faster calibration
+            result = differential_evolution(objective, bounds, seed=42, maxiter=20, workers=1)
         else:
-            result = minimize(objective, x0, method='L-BFGS-B', bounds=bounds)
+            result = minimize(objective, x0, method='L-BFGS-B', bounds=bounds, options={'maxiter': 50})
 
         calibrated_params = {
             'v0': result.x[0],

@@ -86,8 +86,14 @@ class LocalVolatilityModel:
         local_vols = np.zeros_like(implied_vols)
 
         # Create interpolation for implied volatility
+        # Dynamically set spline degree based on data points
+        kx = min(3, len(strikes) - 1)
+        ky = min(3, len(maturities) - 1)
+        kx = max(1, kx)  # At least linear
+        ky = max(1, ky)
+
         iv_interp = RectBivariateSpline(strikes, maturities, implied_vols,
-                                        kx=3, ky=3)
+                                        kx=kx, ky=ky)
 
         for i, K in enumerate(strikes):
             for j, T in enumerate(maturities):

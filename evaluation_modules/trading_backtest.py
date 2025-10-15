@@ -62,7 +62,9 @@ class BacktestResult:
     # Performance metrics
     total_pnl: float = 0.0
     gross_pnl: float = 0.0
+    net_pnl: float = 0.0
     transaction_costs: float = 0.0
+    hedge_costs: float = 0.0
     sharpe_ratio: float = 0.0
     max_drawdown: float = 0.0
     win_rate: float = 0.0
@@ -72,6 +74,7 @@ class BacktestResult:
     var_95: float = 0.0
     cvar_95: float = 0.0
     max_delta_exposure: float = 0.0
+    final_delta: float = 0.0
 
 
 class ModelTradingStrategy:
@@ -137,6 +140,10 @@ class ModelTradingStrategy:
         T = option['years_to_expiry']
         option_type = option['option_type']
 
+        # Validate time to expiry
+        if T <= 0:
+            raise ValueError(f"Invalid time to expiry: {T}. Option may have expired.")
+
         if self.model_name == 'heston':
             from models.heston import HestonParameters
             params = HestonParameters(
@@ -177,9 +184,16 @@ class ModelTradingStrategy:
 
         elif self.model_name == 'multi_agent':
             framework = self.calibrated_params['framework']
-            # Use Q* measure price
-            price = framework.Q_star_measure.price_option(
-                self.spot_price, K, T, self.risk_free_rate, option_type
+            # Use Q* measure price with compute_expectation
+            # Define payoff function for the option
+            if option_type == 'call':
+                payoff_function = lambda S: max(S - K, 0)
+            else:  # put
+                payoff_function = lambda S: max(K - S, 0)
+
+            # Compute option price using Q* measure expectation
+            price = framework.Q_star_measure.compute_expectation(
+                payoff_function, self.spot_price, T
             )
             # Approximate greeks
             greeks = self._approximate_greeks(price, K, T, option_type)
@@ -221,6 +235,10 @@ class ModelTradingStrategy:
         --------
         TradingSignal or None : Trading signal if edge exceeds threshold
         """
+        # Skip options with invalid expiry
+        if option.get('years_to_expiry', 0) <= 0:
+            return None
+
         model_price, greeks = self.compute_model_price(option)
 
         # Calculate edge
@@ -337,6 +355,10 @@ class ModelTradingStrategy:
             # Recompute prices and greeks
             option_info = self._parse_instrument_id(pos.instrument_id)
 
+            # Skip expired options
+            if option_info.get('years_to_expiry', 0) <= 0:
+                continue
+
             try:
                 model_price, greeks = self.compute_model_price(option_info)
                 new_prices[pos.instrument_id] = model_price
@@ -359,11 +381,29 @@ class ModelTradingStrategy:
     def _parse_instrument_id(self, instrument_id: str) -> Dict:
         """Parse instrument ID back to option details"""
         parts = instrument_id.split('-')
+        expiration_str = parts[1]
+
+        # Handle both formats: synthetic (e.g., '7D') and real Deribit (e.g., '16OCT25')
+        if expiration_str.endswith('D'):
+            # Synthetic format: {days}D
+            days_to_expiry = float(expiration_str.replace('D', ''))
+            years_to_expiry = days_to_expiry / 365.0
+        else:
+            # Real Deribit format: DDMMMYY (e.g., '16OCT25')
+            try:
+                expiration_date = pd.to_datetime(expiration_str, format='%d%b%y')
+                days_to_expiry = (expiration_date - pd.Timestamp.now()).days
+                years_to_expiry = max(days_to_expiry / 365.0, 0.0)  # Ensure non-negative
+            except Exception as e:
+                # Fallback if parsing fails
+                logger.warning(f"Could not parse expiration date '{expiration_str}': {e}")
+                years_to_expiry = 0.0
+
         return {
             'strike': float(parts[0]),
-            'years_to_expiry': float(parts[1].replace('D', '')) / 365,
+            'years_to_expiry': years_to_expiry,
             'option_type': parts[2],
-            'expiration': parts[1]
+            'expiration': expiration_str
         }
 
     def get_performance_metrics(self) -> Dict:
@@ -408,7 +448,6 @@ class ModelTradingStrategy:
         var_95 = np.percentile(returns, 5) if len(returns) > 0 else 0.0
 
         return {
-            'model_name': self.model_name,
             'total_pnl': total_pnl,
             'gross_pnl': gross_pnl,
             'net_pnl': total_pnl,
@@ -447,7 +486,19 @@ class ModelComparisonBacktest:
         calibrator : ModelCalibrator
             Calibrated models
         """
-        self.market_data = market_data
+        # Filter out expired or invalid options upfront
+        if 'years_to_expiry' in market_data.columns:
+            valid_data = market_data[market_data['years_to_expiry'] > 0].copy()
+
+            if len(valid_data) < len(market_data):
+                logger.warning(
+                    f"Filtered out {len(market_data) - len(valid_data)} expired/invalid options. "
+                    f"Remaining: {len(valid_data)} options"
+                )
+            self.market_data = valid_data
+        else:
+            logger.warning("'years_to_expiry' column not found in market_data. Skipping validation.")
+            self.market_data = market_data
         self.spot_price = spot_price
         self.risk_free_rate = risk_free_rate
         self.calibrator = calibrator
@@ -514,6 +565,10 @@ class ModelComparisonBacktest:
             # Generate and execute signals for each model
             for model_name, strategy in self.strategies.items():
                 for _, option in snapshot.iterrows():
+                    # Skip expired or invalid options
+                    if option.get('years_to_expiry', 0) <= 0:
+                        continue
+
                     # Generate signal
                     signal = strategy.generate_signal(
                         option.to_dict(),

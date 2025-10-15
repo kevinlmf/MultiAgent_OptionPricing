@@ -108,16 +108,16 @@ class BitcoinModelComparisonPipeline:
                 volatility=0.8  # High volatility for crypto
             )
 
-            # Generate option chain
-            maturities = [0.1, 0.25, 0.5, 1.0]  # 1M, 3M, 6M, 1Y
+            # Generate option chain (reduced for speed)
+            maturities = [0.25, 0.5]  # 3M, 6M (reduced from 4 to 2)
             option_chain = generator.generate_option_chain(
-                n_strikes=15,
+                n_strikes=9,  # Reduced from 15 to 9
                 maturities=maturities
             )
 
-            # Simulate time series (5 snapshots)
+            # Simulate time series (3 snapshots for faster backtest)
             time_series = []
-            for i in range(5):
+            for i in range(3):
                 snapshot = option_chain.copy()
                 snapshot['timestamp'] = pd.Timestamp.now() + timedelta(days=i)
 
