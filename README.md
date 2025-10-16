@@ -7,8 +7,9 @@ An options pricing and risk management system combining traditional models (Blac
 ## Quick Start
 
 ```bash
-git clone https://github.com/kevinlmf/MultiAgent_OptionPricing
-cd MultiAgent_OptionPricing
+git clone https://github.com/kevinlmf/Options_Pricing
+cd Options_Pricing
+
 
 # Compare Multi-Agent vs traditional models on Bitcoin options (2-5 min)
 python3 bitcoin/bitcoin_model_comparison.py
